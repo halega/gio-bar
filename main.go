@@ -17,7 +17,6 @@ func main() {
 	go func() {
 		w := app.NewWindow(
 			app.Size(710, 710),
-			app.Decorated(false),
 			app.Title("Gio Bar"),
 		)
 		err := run(w)

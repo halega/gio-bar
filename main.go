@@ -36,9 +36,17 @@ func run(w *app.Window) error {
 
 			for i := range 10 {
 				// border
-				paint.FillShape(ops, w, clip.Rect{Min: image.Pt(50+i*30-2, 50+i*30-2), Max: image.Pt(400+i*30+2, 400+i*30+2)}.Op())
+				rb := clip.Rect{
+					Min: image.Pt(50+i*30-2, 50+i*30-2),
+					Max: image.Pt(400+i*30+2, 400+i*30+2),
+				}
+				paint.FillShape(ops, w, rb.Op())
 				fg := color.NRGBA{R: 100 - uint8(i)*10, G: 50, B: 10 + uint8(i)*10, A: 255}
-				paint.FillShape(ops, fg, clip.Rect{Min: image.Pt(50+i*30, 50+i*30), Max: image.Pt(400+i*30, 400+i*30)}.Op())
+				r := clip.Rect{
+					Min: image.Pt(50+i*30, 50+i*30),
+					Max: image.Pt(400+i*30, 400+i*30),
+				}
+				paint.FillShape(ops, fg, r.Op())
 			}
 
 			e.Frame(ops)

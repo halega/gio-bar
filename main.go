@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"log"
@@ -14,7 +15,11 @@ import (
 
 func main() {
 	go func() {
-		w := app.NewWindow(app.Size(710, 710))
+		w := app.NewWindow(
+			app.Size(710, 710),
+			app.Decorated(false),
+			app.Title("Gio Bar"),
+		)
 		err := run(w)
 		if err != nil {
 			log.Fatal(err)
@@ -44,6 +49,8 @@ func run(w *app.Window) error {
 			e.Frame(ops)
 		case app.DestroyEvent:
 			return e.Err
+		default:
+			fmt.Printf("Event: %T\n", e)
 		}
 	}
 }

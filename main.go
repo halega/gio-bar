@@ -14,7 +14,7 @@ import (
 
 func main() {
 	go func() {
-		w := app.NewWindow(app.Size(500, 500))
+		w := app.NewWindow(app.Size(710, 710))
 		err := run(w)
 		if err != nil {
 			log.Fatal(err)

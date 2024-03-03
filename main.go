@@ -19,6 +19,7 @@ import (
 func main() {
 	go func() {
 		w := app.NewWindow(
+			// TODO: use unit.Dp() instead of consts
 			app.Size(710, 710),
 			app.Title("Gio Bar"),
 		)
